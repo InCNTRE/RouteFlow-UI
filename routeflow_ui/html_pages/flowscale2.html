@@ -1,0 +1,79 @@
+    <body class="yui-skin-sam">
+       <table>
+	<tr>
+	 <td class="map"> 
+	<div id="demo" class="yui-navset">
+         <ul class="yui-nav" style="border: white">
+           <li><a href="#tab1"><em>Logical</em></a></li>
+           <li class="selected"><a href="#tab2"><em>Geographic</em></a></li>
+         </ul>            
+
+        <div class="yui-content">
+	 <div id="geo" onload="init()">
+          <div id="map3d"></div>
+	 </div>
+        </div>
+	</div>
+        <center>
+
+	<div id="rf_legend">
+          <table style="font-size:smaller;color:#545454">
+	   <tbody>
+	    <tr>
+	     <td class="legendColorBox">
+              <div style="border:1px solid #ccc;padding:1px">
+		<div style="width:4px;height:0;border:5px solid yellow;overflow:hidden">
+                </div>
+              </div>
+            </td>
+           <td class="legendLabel">OSPF</td>
+           <td class="legendColorBox">
+		<div style="border:1px solid #ccc;padding:1px">
+		<div style="width:4px;height:0;border:5px solid red;overflow:hidden">
+          </div></div></td><td class="legendLabel">BGP</td>
+	  <td class="legendColorBox">                <div style="border:1px solid #ccc;padding:1px">                <div style="width:4px;height:0;border:5px solid black;overflow:hidden">          </div></div></td><td class="legendLabel">Down</td>
+          </tr></tbody></table>
+
+
+</div>
+
+        </center>
+	  <img src="media/refresh-icon.png" onclick="load_cyto();">
+	</td>
+	<td class="graph"> 
+		<center>
+		<table border=1>
+			<tr><th>Router</th><th>Status</th><th>Terminal Session</th></tr>
+			<tr><td>RouteFlow A</td><td>Up</td><td><img scale="200%" src="media/Open_button.png" onclick="vtysh_A()"></td><tr>
+			<tr><td>RouteFlow B</td><td>Up</td><td onclick="vtysh_A()">Open</td><tr>
+			<tr><td>RouteFlow C</td><td>Up</td><td onclick="vtysh_A()">Open</td><tr>
+			<tr><td>RouteFlow D</td><td>Up</td><td onclick="vtysh_A()">Open</td><tr>
+		</table>
+		</center>
+
+			<div id="traffic_container">
+			<div id="note">Total Traffic</div>
+			<div id="traffic_graph"></div>
+		        <center>
+                        <div id="traffic_legend"></div>
+			</center>
+                         <select id="traffic_time">           
+                            <option value="600">Past 10 Minutes</option>
+                            <option value="3600">Past Hour</option>
+                            <option value="86400">Past Day</option>
+                            <option value="259200">Past 3 Days</option>
+                            <option value="604800">Past Week</option>
+                            <option value="2592000">Past Month</option>                         
+
+                          </select>
+			</div>
+	</td>
+       </tr>
+      </table>
+        
+
+         
+	
+    </body>
+    
+</html>
