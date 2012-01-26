@@ -2,7 +2,7 @@ window.onload = init_graph();
 
 
 function init_graph () {
-	setupMeasurementGraph("156.56.5.43_25.rrd");
+	setupMeasurementGraph("192.12.206.231_2.rrd:192.12.206.231_3.rrd:192.12.206.231_4.rrd:192.12.206.231_5.rrd:192.12.206.231_6.rrd:192.12.206.231_12.rrd:192.12.206.231_15.rrd:192.12.206.231_16.rrd:192.12.206.231_17.rrd");
 }
 
 
@@ -41,7 +41,7 @@ function MeasurementGraph(container, legend_container, options){
     this.graph            = null;
     this.panel            = null;
     this.updating         = null;
-    this.POLL_INTERVAL    = 100000000;
+    this.POLL_INTERVAL    = 10000;
 
 
     var round = function(value){
@@ -266,7 +266,7 @@ function MeasurementGraph(container, legend_container, options){
            this.options.circuit_id = ""; 
         }
         
-        var ds = new YAHOO.util.DataSource("webservice/fs_measurement_agg.cgi?file="+this.options.circuit_id+"&start="+parseInt(this.options.start));
+        var ds = new YAHOO.util.DataSource("webservice/rf_measurement_agg.cgi?file="+this.options.circuit_id+"&start="+parseInt(this.options.start));
         ds.responseType = YAHOO.util.DataSource.TYPE_JSON;
 
 

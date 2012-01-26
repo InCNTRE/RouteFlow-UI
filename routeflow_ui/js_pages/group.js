@@ -885,6 +885,8 @@ index_panel = [% i %] ;
 	YAHOO.example.container.add_panel = new YAHOO.widget.Panel("add_panel", {
 		width : "370px",
 		visible : false,
+		y: 50,
+		x: 800,
 		constraintoviewport : true
 	});
 	YAHOO.example.container.add_panel.render();
@@ -894,7 +896,7 @@ index_panel = [% i %] ;
 
 	YAHOO.util.Event.onContentReady("add_new_button", function() {
 		var add_button = new YAHOO.widget.Button("add_new_button", {
-			label : "Add group"
+			label : "Add Connection"
 		});
 		add_button.addClass("page_button");
 		YAHOO.util.Event.addListener("add_new_button", "click", YAHOO.example.container.add_panel.show, YAHOO.example.container.add_panel, true);

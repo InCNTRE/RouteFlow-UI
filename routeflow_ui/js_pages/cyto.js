@@ -1,65 +1,71 @@
-window.onload = load_cyto();
+window.onload = test_cyto();
 
-
-function createRequest() {
-
-  try {
-     request = new XMLHttpRequest();
-  } catch (tryMS) {
-    try {
-        request = new ActiveXObject("Msxml2.XMLHTTP");
-    } catch (failed) {
-	request = null;
-    }
-   }
-
-   return request;
-}
-
-
-function load_cyto() {
-
-   request = createRequest();
-
-   if (request == null) {
-	alert ("Unable to create request");
-	return;
-   }
-
-   var url = "webservice/topo_json.cgi";
-
-   request.open("GET",url,true);
-   request.onreadystatechange = update_cyto;
-   request.send(null);
-	
-} 
+function test_cyto() {
+   	
+		var div_id = "cytotest";
+                
+                var networ_json = {
+                    data: {
+                        nodes: [ { id: "1" }, { id: "2" } ],
+                        edges: [ { id: "2to1", target: "1", source: "2" } ]
+                    }
+                };
+                
+                var options = {
+                    swfPath: "/swf/CytoscapeWeb",
+                    flashInstallerPath: "/swf/playerProductInstall"
+                };
+                
+                var vis = new org.cytoscapeweb.Visualization(div_id, options);
+                vis.draw({ network: networ_json });
+};
 
 
 function update_cyto() {
 
 
-  
-   if (request.readyState == 4) {
-	if (request.status == 200) {
-
-	  var resp = request.responseText;
-          var network_json = JSON.parse(resp); 
+         // var network_json = JSON.parse(resp); 
          //document.getElementById("note").innerHTML += "<p>" + resp + "</p>";
+         var network_json = { 
+                        data: {
+                            nodes: [ 
+                                     { id: "RouteFlow A" },
+				     { id: "RouteFlow B" },
+				     { id: "RouteFlow C" },
+				     { id: "RouteFlow D" },	
+                                     { id: "2", parent: "RouteFlow A" },
+                                     { id: "3", parent: "RouteFlow A" },
+				     { id: "4", parent: "RouteFlow A" },
+				     { id: "49", parent: "RouteFlow A" },
+                                     { id: "5", parent: "RouteFlow B" },
+                                     { id: "6", parent: "RouteFlow B" },
+				     { id: "11", parent: "RouteFlow C" },
+                                     { id: "12", parent: "RouteFlow C" },
+                                     { id: "15", parent: "RouteFlow D" },
+				     { id: "16", parent: "RouteFlow D" },
+                                     { id: "17", parent: "RouteFlow D" },
+                                     { id: "18", parent: "RouteFlow D" },
+				     { id: "CIC" },
+                                     { id: "Indiana Gigapop" },
+                            ],
+                            edges: [ 
+                                    { target: "2", source: "5" },
+                                    { target: "3", source: "12" },
+                                    { target: "4", source: "18" },
+                                    { target: "6", source: "16" },
+                                    { target: "11", source: "17" },
+                                    { target: "49", source: "CIC" },
+			            { target: "15", source: "Indiana Gigapop" },
+				 ]
+				}
+				};
+
 
     var div_id = "cytoscapeweb";
 
 
     var visual_style = {
 	nodes: {
-		       color: {
-			 discreteMapper: {
-                                attrName: "status",
-                                entries: [
-                                    { attrValue: 0, value: "#25E86D" },
-                                    { attrValue: 1, value: "#F28F96" }
-				]
-				}
-			},
                         compoundShape: "RECTANGLE",
                         label: { passthroughMapper: { attrName: "id" } } ,
                         compoundLabel: { passthroughMapper: { attrName: "id" } } ,
@@ -120,8 +126,6 @@ function update_cyto() {
 	    };
 
 	    vis.draw(draw_options);
-	}
-     }
 }        
 
 

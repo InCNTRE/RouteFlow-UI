@@ -92,6 +92,16 @@ sub main {
 			$content  = decode_json( $ctrl->get_gibberish() );
 
 		}
+		
+		case "rf_conn" {
+			$filename           = "html_pages/group.html";
+                        $title              = "Connection Panel";
+                        $breadcrumbs        = $HOME_BREADCRUMBS;
+                        $current_breadcrumb = "Connection Details";
+                        $content            = $db->get_groups();
+                }
+
+
 
 		case "group" {
 			$filename           = "html_pages/group.html";

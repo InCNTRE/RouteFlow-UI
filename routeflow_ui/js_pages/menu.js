@@ -44,9 +44,9 @@ var aSubmenuData = [
     {
         id: "Admin", 
         itemdata: [
-            { text: "Routers", url: "index.cgi?action=switch" },
-            { text: "Controller", url: "index.cgi?action=group" },
-	    { text: "Network", url: "index.cgi?action=group" },
+            { text: "New Connection", url: "index.cgi?action=rf_conn" },
+            { text: "New Switch", url: "index.cgi?action=group" },
+	    { text: "Network Preferences", url: "index.cgi?action=group" },
           //  { text: "X-Connect", url: "index.cgi?action=x_connect" },
           
     

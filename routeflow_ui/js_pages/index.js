@@ -4,6 +4,8 @@
 
 
 <script>
+
+var myTabs = new YAHOO.widget.TabView("demo");
 /*
 	YAHOO.namespace("example.container");	
 
