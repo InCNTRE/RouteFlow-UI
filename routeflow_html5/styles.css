@@ -1,0 +1,13 @@
+#note {
+	float: left;
+	margin: 10px;
+	}
+	
+#cytoscapeweb {
+	float: left;
+	width: 70%;
+    height: 800px;
+	border: 1px solid #888;
+    position: relative;
+	background: #5D7CBA;
+	}
