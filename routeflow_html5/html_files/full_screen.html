@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-     <script type="text/javascript" src="js/lib/jquery-1.7.1.min.js"></script>
-     <script type="text/javascript" src="js/jquery.cytoscapeweb.min.js"></script>
-     <script type="text/javascript" src="js/lib/2D.js"></script>
-     <script type="text/javascript" src="js/lib/arbor.js"></script>
-     <script type="text/javascript" src="js/lib/jquery.color.js"></script>
-     <script type="text/javascript" src="js/lib/jquery.mousewheel.js"></script>
-     <script type="text/javascript" src="js/lib/jquery.svg.js"></script>
-     <script type="text/javascript" src="js/extensions/jquery.cytoscapeweb.renderer.svg.min.js"></script>
-     <script type="text/javascript" src="js/extensions/jquery.cytoscapeweb.layout.arbor.min.js"></script>
-	 <script type="text/javascript" src="js/extensions/jquery.cytoscapeweb.layout.preset.min.js"></script>
+     <script type="text/javascript" src="../js/cytoscapeweb/lib/jquery-1.7.1.min.js"></script>
+     <script type="text/javascript" src="../js/cytoscapeweb/jquery.cytoscapeweb.min.js"></script>
+     <script type="text/javascript" src="../js/cytoscapeweb/lib/2D.js"></script>
+     <script type="text/javascript" src="../js/cytoscapeweb/lib/arbor.js"></script>
+     <script type="text/javascript" src="../js/cytoscapeweb/lib/jquery.color.js"></script>
+     <script type="text/javascript" src="../js/cytoscapeweb/lib/jquery.mousewheel.js"></script>
+     <script type="text/javascript" src="../js/cytoscapeweb/lib/jquery.svg.js"></script>
+     <script type="text/javascript" src="../js/cytoscapeweb/extensions/jquery.cytoscapeweb.renderer.svg.min.js"></script>
+     <script type="text/javascript" src="../js/cytoscapeweb/extensions/jquery.cytoscapeweb.layout.arbor.min.js"></script>
+	 <script type="text/javascript" src="../js/cytoscapeweb/extensions/jquery.cytoscapeweb.layout.preset.min.js"></script>
 	
-	<link rel="stylesheet" href="css/styles.css" />
+	
+	<!-- mbExtruder -->
+	<link href="../js/jquery.mb.extruder.2.3/css/mbExtruder.css" media="all" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="../js/jquery.mb.extruder.2.3/inc/jquery.hoverIntent.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.mb.extruder.2.3/inc/jquery.metadata.js"></script>
+    <script type="text/javascript" src="../js/jquery.mb.extruder.2.3/inc/jquery.mb.flipText.js"></script>
+    <script type="text/javascript" src="../js/jquery.mb.extruder.2.3/inc/mbExtruder.js"></script>
+	
+	<link rel="stylesheet" href="../css/styles_fs.css" />
 	
      <script type="text/javascript">
 		$(document).ready(function() { 
@@ -73,7 +82,7 @@
                         };
 		
 		
-		$("#cytoscapeweb").cytoscapeweb({
+		$("#cy_fs").cytoscapeweb({
                         renderer: {
                                 name: "svg"
                         },
@@ -89,10 +98,23 @@
 
 		
 		
-	
-       		 	 
+		$("#extruderLeft").buildMbExtruder({
+          positionFixed:true,
+          width:350,
+          sensibility:800,
+          position:"right"
+          });
+       		
+       	$("#extruderLeft2").buildMbExtruder({
+          positionFixed:true,
+          width:350,
+          sensibility:800,
+          position:"right"
+          });	
        		 
 		});
+	
+		
 	
 		
 
@@ -102,13 +124,16 @@
     </head>
 	<body>
 
-	<div id="box">
 	  <div id="title">
-	    <img src="media/RF_Trans_300.png">
+	    <img src="../media/RF_Trans_150.png">
 	  </div>
-		<div id="cytoscapeweb"></div>
-		<div id="note">Node/Edge info goes here</div>
-    </div>
-	
+	  <div id="cy_fs"></div>
+	  <div id="extruderLeft" class="{title:'Graphs', url:'../js/jquery.mb.extruder.2.3/parts/extruderLeft.html'}">
+		  <div class="content" id="graph_content"> Graphs will go here</div>
+	  </div>
+	  <div id="cy_fs"></div>
+	  <div id="extruderLeft2" class="{title:'Status', url:'../js/jquery.mb.extruder.2.3/parts/extruderTop.html'}">
+		  <div class="content" id="info_content"> Node/Edge status will go here</div>
+	  </div>
     </body>
 </html>
