@@ -1,6 +1,7 @@
 html {
 	height: 100%;
 	width: 100%;
+	background: black;
 }
 
 body {
@@ -44,6 +45,10 @@ body {
 
 
 /* Graphical Elements */
+	
+#title {
+	float: left;
+	}
 	
 	
 #box {
