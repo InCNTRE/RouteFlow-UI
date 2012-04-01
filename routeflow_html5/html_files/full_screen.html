@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+      <!-- Cytoscape -->
      <script type="text/javascript" src="../js/cytoscapeweb/lib/jquery-1.7.1.min.js"></script>
      <script type="text/javascript" src="../js/cytoscapeweb/jquery.cytoscapeweb.min.js"></script>
      <script type="text/javascript" src="../js/cytoscapeweb/lib/2D.js"></script>
@@ -42,8 +44,8 @@
 	                         passthroughMapper: "label"
                          },
 
-      				height: 25,
-      				width: 25
+      				height: 18,
+      				width: 18
     			},
     			"node:selected": {
        				fillColor: "red"
@@ -104,21 +106,39 @@
 
 		
 		
-		$("#extruderLeft").buildMbExtruder({
+	$("#extruderLeft").buildMbExtruder({
           positionFixed:true,
           width:350,
           sensibility:800,
-          position:"right"
+          position:"right",
+	  extruderOpacity:.75
           });
        		
-       	$("#extruderLeft2").buildMbExtruder({
+        $("#extruderLeft2").buildMbExtruder({
           positionFixed:true,
           width:350,
           sensibility:800,
-          position:"right"
-          });	
+          position:"right",
+	  extruderOpacity:.75
+          });
+
+	$("#extruderLeft3").buildMbExtruder({
+          positionFixed:true,
+          width:350,
+          sensibility:800,
+          position:"right",
+	  extruderOpacity:.75
+          });
+
+	$("#extruderLeft4").buildMbExtruder({
+          positionFixed:true,
+          width:350,
+          sensibility:800,
+          position:"right",
+	  extruderOpacity:.75
+          });
        		 
-		});
+	});
 	
 		
 	
@@ -134,13 +154,10 @@
 	    <img src="../media/routeflow_logo_bl_60.png">
 	  </div>
     		
-	     <div id="cy_fs"></div>
-	  </div> 
-	  <div id="extruderLeft" class="{title:'Graphs', url:'graph_test.html'}">
-		  <div class="content" id="graph_content"> Graphs will go here</div>
-	  </div>
-	  <div id="extruderLeft2" class="{title:'Status', url:'../js/jquery.mb.extruder.2.3/parts/extruderTop.html'}">
-		  <div class="content" id="info_content"> Node/Edge status will go here</div>
-	  </div>
+	  <div id="cy_fs"></div>
+	  <div id="extruderLeft"  class="{title:'Status', url:'bgp_tab.html'}"></div>
+	  <div id="extruderLeft2" class="{title:'Graphs', url:'bgp_tab.html'}"></div>
+  	  <div id="extruderLeft3" class="{title:'Peerings', url:'bgp_tab.html'}"></div>
+          <div id="extruderLeft4" class="{title:'Admin', url:'bgp_tab.html'}"></div>
     </body>
 </html>
