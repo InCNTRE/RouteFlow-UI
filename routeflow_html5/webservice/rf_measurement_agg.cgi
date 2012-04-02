@@ -64,7 +64,7 @@ sub get_rrd_file_data{
     my $file_num = 0;
     foreach my $rrd (@rrds) {
 
-    my $rrdfile = "/Users/chsmall/git/RouteFlow-UI/routeflow_html5/rrds/" . $rrd;
+    my $rrdfile = "/home/chsmall/git/RouteFlow-UI/routeflow_html5/rrds/" . $rrd;
     if ($rrd =~ /140.221.223.201/) {$rrdfile = "/home/akhalfan/rrdssc/" . $rrd;}
     #print " Filename $rrd\n";
 
