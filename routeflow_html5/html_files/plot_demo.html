@@ -21,7 +21,7 @@
 			// Our ajax data renderer which here retrieves a text file.
   			// it could contact any source and pull data, however.
   			// The options argument isn't used in this renderer.
-  			var ajaxDataRenderer = function(url, plot, options) {
+  	   var ajaxDataRenderer = function(url, plot, options) {
     		var ret = null;
     		$.ajax({
       		// have to use synchronous here, else the function 
@@ -39,44 +39,30 @@
 			 // The url for our json data
            var jsonurl = "../webservice/jsondata.txt";
 		
-		   var plot1 = $.jqplot('chart1', jsonurl, { 
-   			   title: 'Google, Inc.', 
-      			series: [{ 
-          		label: 'Google, Inc.', 
-          		neighborThreshold: -1 
-      			}], 
-      		axes: { 
-          	xaxis: { 
-              renderer: $.jqplot.DateAxisRenderer,
-              min:'August 1, 2007 16:00:00', 
-              tickInterval: '4 months', 
-              tickOptions:{formatString:'%Y/%#m/%#d'} 
-          	}, 
-          	yaxis: { 
-              tickOptions:{formatString:'$%.2f'} 
-          } 
-      }, 
-      cursor:{ 
-        show: true,
-        zoom:true, 
-        showTooltip:false
-      } 
-  });
+		   var plot1 = $.jqplot('chart1', jsonurl, {
+    				title: "AJAX JSON Data Renderer",
+    				dataRenderer: ajaxDataRenderer,
+    				dataRendererOptions: {
+      					unusedOptionalUrl: jsonurl
+   		   		}
+      				cursor:{ 
+        				show: true,
+        				zoom:true, 
+        				showTooltip:false
+      				} 
+  		});
  
-  $('.button-reset').click(function() { plot1.resetZoom() });
+  	   $('.button-reset').click(function() { plot1.resetZoom() });
 });
 	
-	
-	</script>
+</script>
 
 
-    </head>
-	<body>
-
-
-	    <img src="../media/routeflow_logo_bl_60.png">
-		<div id="charts" style="background: white">		
-		<div id="chart1" style="height:300px; width:500px;"></div>
-		</div>
-    </body>
+</head>
+   <body>
+	<img src="../media/routeflow_logo_bl_60.png">
+	<div id="charts" style="background: white">		
+	   <div id="chart1" style="height:300px; width:500px;"></div>
+	</div>
+   </body>
 </html>
