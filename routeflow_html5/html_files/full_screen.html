@@ -119,7 +119,7 @@
           width:350,
           sensibility:800,
           position:"right",
-	  extruderOpacity:.75
+	  flapDim: "75%"
           });
 
 	$("#extruderLeft3").buildMbExtruder({
@@ -156,7 +156,9 @@
     		
 	  <div id="cy_fs"></div>
 	  <div id="extruderLeft"  class="{title:'Status', url:'bgp_tab.html'}"></div>
-	  <div id="extruderLeft2" class="{title:'Graphs', panel:'plot_tab.html'}"></div>
+	  <div id="extruderLeft2" class="{title:'Graphs', url:'plot_tab.html'}">
+		<div class="content"> Content </div>
+	  </div>
   	  <div id="extruderLeft3" class="{title:'Peerings', url:'bgp_tab.html'}"></div>
           <div id="extruderLeft4" class="{title:'Admin', url:'admin_tab.html'}"></div>
     </body>
