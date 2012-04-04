@@ -1,0 +1,42 @@
+2 Prontos
+
+Simulated Internet2 configuation
+
+Pronto 1
+-------------
+ports 1-5 - Router A
+ports 6-10 - Router B
+ports 11-15 - Router C
+ports 16-20 - Router D
+
+A->testpoint    1->testpoint
+A-B                 2-6
+A-C                 3-11
+
+B-C                 7-12
+B-F                 8-sw2 6
+
+C-D                 13-16
+C-cust 1           14- PC
+
+D-F                    17- SW2 7
+D-G                    18- SW2 11
+
+Pronto 2
+-------------
+ports 1-5 - Router E
+ports 6-10 - Router F
+ports 11-15 - Router G
+ports 16-20 - Router H
+ports 21-25 - Router I
+
+E-F               1-8
+E-G               2-12
+E-H               3-16
+E-I                4-21
+
+G-I                13-22
+
+H-I               17-23
+
+I-cust 2          24->cust2
