@@ -1,0 +1,266 @@
+# Switch 1 config
+#-------------------------
+
+export MYIP=156.56.5.46
+export CTLIP=156.56.5.14
+export VSCTL="ovs-vsctl --db=tcp:$MYIP:9999"
+cd /
+rm -f /ovs/ovs-vswitchd.conf.db
+ovsdb-tool create /ovs/ovs-vswitchd.conf.db /ovs/bin/vswitch.ovsschema
+ovsdb-server /ovs/ovs-vswitchd.conf.db --remote=ptcp:9999:$MYIP &
+ovs-vswitchd tcp:$MYIP:9999 --pidfile=pica8 -- &
+sleep 5
+
+# Setup switch A
+
+$VSCTL add-br switchA
+sleep 5  
+$VSCTL set bridge switchA datapath_type=pronto
+$VSCTL set-fail-mode switchA secure
+$VSCTL set bridge switchA other-config:datapath-id=0000000000000001
+       
+
+
+$VSCTL add-port switchA ge-1/1/1 -- set Interface ge-1/1/1 type=pronto
+$VSCTL add-port switchA ge-1/1/2 -- set Interface ge-1/1/2 type=pronto
+$VSCTL add-port switchA ge-1/1/3 -- set Interface ge-1/1/3 type=pronto
+
+# Setup switch B
+
+$VSCTL add-br switchB
+sleep 5
+$VSCTL set bridge switchB datapath_type=pronto
+$VSCTL set-fail-mode switchB secure
+$VSCTL set bridge switchB other-config:datapath-id=0000000000000002
+$VSCTL add-port switchB ge-1/1/6 -- set Interface ge-1/1/6 type=pronto
+$VSCTL add-port switchB ge-1/1/7 -- set Interface ge-1/1/7 type=pronto
+$VSCTL add-port switchB ge-1/1/8 -- set Interface ge-1/1/8 type=pronto
+
+# Setup switch C
+
+$VSCTL add-br switchC
+sleep 5
+$VSCTL set bridge switchC datapath_type=pronto
+$VSCTL set-fail-mode switchC secure
+$VSCTL set bridge switchC other-config:datapath-id=0000000000000003
+$VSCTL add-port switchC ge-1/1/11 -- set Interface ge-1/1/11 type=pronto
+$VSCTL add-port switchC ge-1/1/12 -- set Interface ge-1/1/12 type=pronto
+$VSCTL add-port switchC ge-1/1/13 -- set Interface ge-1/1/13 type=pronto
+$VSCTL add-port switchC ge-1/1/14 -- set Interface ge-1/1/14 type=pronto
+
+# Setup switch D
+
+$VSCTL add-br switchD
+sleep 5
+$VSCTL set bridge switchD datapath_type=pronto
+$VSCTL set-fail-mode switchD secure
+$VSCTL set bridge switchD other-config:datapath-id=0000000000000004
+$VSCTL add-port switchD ge-1/1/16 -- set Interface ge-1/1/16 type=pronto
+$VSCTL add-port switchD ge-1/1/17 -- set Interface ge-1/1/17 type=pronto
+$VSCTL add-port switchD ge-1/1/18 -- set Interface ge-1/1/18 type=pronto
+
+$VSCTL set-controller switchA tcp:$CTLIP:6633
+sleep 3
+$VSCTL set-controller switchB tcp:$CTLIP:6633
+sleep 3
+$VSCTL set-controller switchC tcp:$CTLIP:6633
+sleep 3
+$VSCTL set-controller switchD tcp:$CTLIP:6633
+
+#Switch 2
+#=======
+
+export MYIP=156.56.5.47
+export CTLIP=156.56.5.14
+export GWIP=192.12.206.225
+export VSCTL="ovs-vsctl --db=tcp:$MYIP:9999"
+cd /
+rm -f /ovs/ovs-vswitchd.conf.db
+ovsdb-tool create /ovs/ovs-vswitchd.conf.db /ovs/bin/vswitch.ovsschema
+ovsdb-server /ovs/ovs-vswitchd.conf.db --remote=ptcp:9999:$MYIP &
+ovs-vswitchd tcp:$MYIP:9999 --pidfile=pica8 -- &
+sleep 5
+
+# Setup switch E
+
+$VSCTL add-br switchE
+sleep 5  
+$VSCTL set bridge switchE datapath_type=pronto
+$VSCTL set-fail-mode switchE secure
+$VSCTL set bridge switchE other-config:datapath-id=0000000000000005
+
+$VSCTL add-port switchE ge-1/1/1 -- set Interface ge-1/1/1 type=pronto
+$VSCTL add-port switchE ge-1/1/2 -- set Interface ge-1/1/2 type=pronto
+$VSCTL add-port switchE ge-1/1/3 -- set Interface ge-1/1/3 type=pronto
+$VSCTL add-port switchE ge-1/1/4 -- set Interface ge-1/1/4 type=pronto
+
+
+# Setup switch F
+
+$VSCTL add-br switchF
+sleep 5
+$VSCTL set bridge switchF datapath_type=pronto
+$VSCTL set-fail-mode switchF secure
+$VSCTL set bridge switchF other-config:datapath-id=0000000000000006
+$VSCTL add-port switchF ge-1/1/6 -- set Interface ge-1/1/6 type=pronto
+$VSCTL add-port switchF ge-1/1/7 -- set Interface ge-1/1/7 type=pronto
+$VSCTL add-port switchF ge-1/1/8 -- set Interface ge-1/1/8 type=pronto
+
+# Setup switch G
+
+$VSCTL add-br switchG
+sleep 5
+$VSCTL set bridge switchG datapath_type=pronto
+$VSCTL set-fail-mode switchG secure
+$VSCTL set bridge switchG other-config:datapath-id=0000000000000007
+$VSCTL add-port switchG ge-1/1/11 -- set Interface ge-1/1/11 type=pronto
+$VSCTL add-port switchG ge-1/1/12 -- set Interface ge-1/1/12 type=pronto
+$VSCTL add-port switchG ge-1/1/13 -- set Interface ge-1/1/13 type=pronto
+
+
+# Setup switch H
+
+$VSCTL add-br switchH
+sleep 5
+$VSCTL set bridge switchH datapath_type=pronto
+$VSCTL set-fail-mode switchH secure
+$VSCTL set bridge switchH other-config:datapath-id=0000000000000008
+$VSCTL add-port switchH ge-1/1/16 -- set Interface ge-1/1/16 type=pronto
+$VSCTL add-port switchH ge-1/1/17 -- set Interface ge-1/1/17 type=pronto
+
+# Setup switch I
+
+$VSCTL add-br switchI
+sleep 5
+$VSCTL set bridge switchI datapath_type=pronto
+$VSCTL set-fail-mode switchI secure
+$VSCTL set bridge switchI other-config:datapath-id=0000000000000009
+$VSCTL add-port switchI ge-1/1/21 -- set Interface ge-1/1/21 type=pronto
+$VSCTL add-port switchI ge-1/1/22 -- set Interface ge-1/1/22 type=pronto
+$VSCTL add-port switchI ge-1/1/23 -- set Interface ge-1/1/23 type=pronto
+$VSCTL add-port switchI ge-1/1/24 -- set Interface ge-1/1/24 type=pronto
+
+$VSCTL set-controller switchE tcp:$CTLIP:6633
+sleep 3
+$VSCTL set-controller switchF tcp:$CTLIP:6633
+sleep 3
+$VSCTL set-controller switchG tcp:$CTLIP:6633
+sleep 3
+$VSCTL set-controller switchH tcp:$CTLIP:6633
+sleep 3
+$VSCTL set-controller switchI tcp:$CTLIP:6633
+
+# rfvmA
+#==========================
+interface eth1
+        ip address 10.20.0.1/30
+!
+interface eth2
+        ip address 10.10.0.1/30
+!
+interface eth3
+        ip address 10.10.0.5/30
+!
+
+
+# rfvmB
+#==========================
+interface eth6
+        ip address 10.10.0.2/30
+!
+interface eth7
+        ip address 10.10.0.9/30
+!
+interface eth8
+        ip address 10.10.0.13/30
+!
+
+# rfvmC
+#==========================
+interface eth11
+        ip address 10.10.0.6/30
+!
+interface eth12
+        ip address 10.10.0.10/30
+!
+interface eth13
+        ip address 10.10.0.17/30
+!
+interface eth14
+		ip address 10.20.0.5/30
+
+
+# rfvmD
+#==========================
+interface eth16
+        ip address 10.10.0.18/30
+!
+interface eth17
+        ip address 10.10.0.21/30
+!
+interface eth18
+        ip address 10.10.0.25/30
+!
+
+# rfvmE
+#==========================
+interface eth1
+        ip address 10.10.0.29/30
+!
+interface eth2
+        ip address 10.10.0.33/30
+!
+interface eth3
+        ip address 10.10.0.37/30
+!
+interface eth4
+        ip address 10.10.0.41/30
+!
+
+# rfvmF
+#==========================
+interface eth6
+        ip address 10.10.0.14/30
+!
+interface eth7
+        ip address 10.10.0.22/30
+!
+interface eth8
+        ip address 10.10.0.30/30
+!
+
+# rfvmG
+#==========================
+interface eth11
+        ip address 10.10.0.26/30
+!
+interface eth12
+        ip address 10.10.0.34/30
+!
+interface eth13
+        ip address 10.10.0.45/30
+!
+
+# rfvmH
+#==========================
+interface eth16
+        ip address 10.10.0.38/30
+!
+interface eth17
+        ip address 10.10.0.49/30
+!
+
+# rfvmI
+#==========================
+interface eth21
+        ip address 10.10.0.42/30
+!
+interface eth22
+        ip address 10.10.0.46/30
+!
+interface eth23
+        ip address 10.10.0.50/30
+!
+
+
+
