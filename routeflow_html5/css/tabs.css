@@ -1,0 +1,12 @@
+#routing_form {
+	color: white;
+}
+
+#add_conn {
+    width: 10em;
+    height: 3em;
+}
+
+.list_entry {
+	margin-bottom: .5em;
+}
