@@ -29,152 +29,41 @@
 	<link href="../js/jquery-ui-1.8.18.custom/css/custom-theme/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css"/>
   	<script src="../js/jquery-ui-1.8.18.custom/js/jquery-ui-1.8.18.custom.min.js"></script>
   
-	
-     <script type="text/javascript">
-		$(document).ready(function() { 
-		
-		$("#tabs").tabs();
-		
-		var styleObj = {
-  			selectors: {
-    			"node": {
-      				fillColor: "#fff",
-      				labelText:  {
-      						 defaultValue: "",
-	                         passthroughMapper: "label"
-                         },
+<!-- CytoScape -->
+<script type="text/javascript" src="../js_files/cyto.js"></script>
 
-      				height: 18,
-      				width: 18
-    			},
-    			"node:selected": {
-       				fillColor: "red"
-    			},
-    			"edge": {
-       				width: 5
-    			},
-    			"edge:selected": {
-       				fillColor: "red"
-    			},
-  		   }
-		};	
-		
-		
-		var elements = {
-                                nodes: [
-                                    { data: { id: "A", label: "SEAT", name: "Seattle", lat: 47.614457, long: -122.338413 } },
-                                    { data: { id: "B", label: "SALT", name: "Salt Lake City", lat: 40.757603, long: -111.953379 } },
-                                    { data: { id: "C", label: "LOSA", name: "Los Angeles", lat: 33.737916, long: -118.295056} },
-                                    { data: { id: "D", label: "HOUS", name: "Houston", lat: 29.956909, long: -95.418942 } },
-                                    { data: { id: "E", label: "CHIC", name: "Chicago", lat: 41.896504, long: -87.64306 } },
-                                    { data: { id: "F", label: "KANS", name: "Kansas", lat: 39.101078, long: -94.582098 } },
-                                    { data: { id: "G", label: "ATLA", name: "Atlanta", lat: 33.758537, long: -84.38759 } },
-                                    { data: { id: "H", label: "NEWY", name: "New York", lat: 40.720069, long: -74.005199 } },
-                                    { data: { id: "I", label: "WASH", name: "Washington DC", lat: 38.908459, long: -77.014891 } }
-                                ],
-                                edges: [
-                                	{ data: { id: "A-B", source: "A", target: "B" } },
-                                	{ data: { id: "A-C", source: "A", target: "C" } },
-                                	{ data: { id: "B-C", source: "B", target: "C" } },
-                                	{ data: { id: "B-F", source: "B", target: "F" } },
-                                	{ data: { id: "C-D", source: "C", target: "D" } },
-                                	{ data: { id: "D-F", source: "D", target: "F" } },
-                                	{ data: { id: "D-G", source: "D", target: "G" } },
-                                	{ data: { id: "E-F", source: "E", target: "F" } },
-                                	{ data: { id: "E-G", source: "E", target: "G" } },
-                                	{ data: { id: "E-H", source: "E", target: "H" } },
-                                	{ data: { id: "E-I", source: "E", target: "I" } },
-                                	{ data: { id: "G-I", source: "G", target: "I" } },
-									{ data: { id: "H-I", source: "H", target: "I" } }
-                                	]
-                        };
-		
-		
-		$("#cy_fs").cytoscapeweb({
-                        renderer: {
-                                name: "svg"
-                        },
-                        layout: {
-                                name: "arbor"
-                        },
-                        style: styleObj,
-                        elements: elements, 
-                        ready: function(cy){
-                                
-                        }
-                });
 
-		
-		
-	$("#extruderLeft").buildMbExtruder({
-          positionFixed:true,
-          width:350,
-          sensibility:800,
-          position:"right",
-	  extruderOpacity:.75
-          });
-       		
-        $("#extruderLeft2").buildMbExtruder({
-          positionFixed:true,
-          width:350,
-          sensibility:800,
-          position:"right",
-	  flapDim: "75%"
-          });
 
-	$("#extruderLeft3").buildMbExtruder({
-          positionFixed:true,
-          width:350,
-          sensibility:800,
-          position:"right",
-	  extruderOpacity:.75
-          });
+<!-- jqPlot -->
+<script type="text/javascript" src="../js/jqPlot/jquery.jqplot.min.js"></script>
+<script type="text/javascript" src="../js/jqPlot/plugins/jqplot.json2.min.js"></script>   
+<script type="text/javascript" src="../js/jqPlot/plugins/jqplot.meterGaugeRenderer.min.js"></script>
+<script type="text/javascript" src="../js/jqPlot/plugins/jqplot.dateAxisRenderer.min.js"></script>
 
-	$("#extruderLeft4").buildMbExtruder({
-          positionFixed:true,
-          width:350,
-          sensibility:800,
-          position:"right",
-	  extruderOpacity:.75
-          });
-       		 
-	});
-	
-		
-	
-		
-
-	</script>
-
-  <script type="text/javascript" src="../js/jqPlot/jquery.jqplot.min.js"></script>
-  <script type="text/javascript" src="../js/jqPlot/plugins/jqplot.json2.min.js"></script>   
-  <script type="text/javascript" src="../js/jqPlot/plugins/jqplot.meterGaugeRenderer.min.js"></script>
-    <script type="text/javascript" src="../js/jqPlot/plugins/jqplot.dateAxisRenderer.min.js"></script>
-
- <link rel="stylesheet" href="../js/jqPlot/jquery.jqplot.min.css" />
- <link rel="stylesheet" href="../css/styles_fs.css" />
+<link rel="stylesheet" href="../js/jqPlot/jquery.jqplot.min.css" />
+<link rel="stylesheet" href="../css/styles_fs.css" />
         
         
-
-
   
 <script type="text/javascript" src="../js_files/graph.js"> </script>
 
-
-    </head>
-	<body>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="../media/routeflow_bl_logo.png"/>
+  </head>
+  <body>
 
 	  <div id="logo">
-	    <img src="../media/routeflow_logo_bl_60.png">
+	    <a href="full_screen.html">	  
+	      <img src="../media/routeflow_logo_bl_60.png">
+	    </a>
 	  </div>
     		
 	  <div id="cy_fs"></div>
-	  <div id="extruderLeft"  class="{title:'Status', url:'bgp_tab.html'}"></div>
+	  <div id="extruderLeft"  class="{title:'Status', url:'status_tab.html'}"></div>
 	  <div id="extruderLeft2" class="{title:'Graphs', url:'plot_tab.html'}">
-		<div class="content" style="color:white;">FFFFFF
-		</div>
+		<img src="../media/graph_mockup.png">
 	  </div>
-  	  <div id="extruderLeft3" class="{title:'Peerings', url:'bgp_tab.html'}"></div>
+  	  <div id="extruderLeft3" class="{title:'Routing', url:'bgp_tab.html'}"></div>
           <div id="extruderLeft4" class="{title:'Admin', url:'admin_tab.html'}"></div>
     </body>
 </html>
