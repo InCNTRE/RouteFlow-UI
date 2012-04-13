@@ -7,43 +7,36 @@
          // var network_json = JSON.parse(resp); 
          //document.getElementById("note").innerHTML += "<p>" + resp + "</p>";
          var network_json = { 
-			 dataSchema: {
-                            nodes: [ { name: "label", type: "string" },
-				     { name: "name", type: "string" },
-                                     { name: "lat", type: "long" },
-				     { name: "long", type: "long" },
-                                ],
-                            edges: [ { name: "label", type: "string" },
-                            ]
-                        },
                         data: {
                             nodes: [ 
-                                     { id: "A", label: "SEAT", name: "Seattle", lat: 47.614457, long: -122.338413  },
-				     { id: "B", label: "SALT", name: "Salt Lake City", lat: 40.757603, long: -111.953379 },
-				     { id: "C", label: "LOSA", name: "Los Angeles", lat: 33.737916, long: -118.295056 },
-				     { id: "D", label: "HOUS", name: "Houston", lat: 29.956909, long: -95.418942 },	
-				     { id: "E", label: "CHIC", name: "Chicago", lat: 41.896504, long: -87.64306 },
-                                     { id: "F", label: "KANS", name: "Kansas", lat: 39.101078, long: -94.582098 },
-                                     { id: "G", label: "ATLA", name: "Atlanta", lat: 33.758537, long: -84.38759 },
-                                     { id: "H", label: "NEWY", name: "New York", lat: 40.720069, long: -74.005199 },  
-				     { id: "I", label: "WASH", name: "Washington DC", lat: 38.908459, long: -77.014891 },
-				     { id: "testpoint", label: "BLDC", name: "Bloomington, IN", lat: 38.908459, long: -77.014891 }
+                                     { id: "RouteFlow A" },
+				     { id: "RouteFlow B" },
+				     { id: "RouteFlow C" },
+				     { id: "RouteFlow D" },	
+                                     { id: "2", parent: "RouteFlow A" },
+                                     { id: "3", parent: "RouteFlow A" },
+				     { id: "4", parent: "RouteFlow A" },
+				     { id: "49", parent: "RouteFlow A" },
+                                     { id: "5", parent: "RouteFlow B" },
+                                     { id: "6", parent: "RouteFlow B" },
+				     { id: "11", parent: "RouteFlow C" },
+                                     { id: "12", parent: "RouteFlow C" },
+			             { id: "13", parent: "RouteFlow C" },
+                                     { id: "15", parent: "RouteFlow D" },
+				     { id: "16", parent: "RouteFlow D" },
+                                     { id: "17", parent: "RouteFlow D" },
+                                     { id: "18", parent: "RouteFlow D" },
+				     { id: "CIC" },
+                                     { id: "Indiana Gigapop" },
                             ],
                             edges: [ 
-                                    { label: "A-B", target: "A", source: "B" },
-                                    { label: "A-C", target: "A", source: "C" },
-                                    { label: "B-C", source: "B", target: "C" },
-                                    { label: "B-F", source: "B", target: "F" },
-                                    { label: "C-D", source: "C", target: "D" },
-                                    { label: "D-F", source: "D", target: "F" },
-                                    { label: "D-G", source: "D", target: "G" },
-                                    { label: "E-F", source: "E", target: "F" },
-                                    { label: "E-G", source: "E", target: "G" },
-                                    { label: "E-H", source: "E", target: "H" },
-                                    { label: "E-I", source: "E", target: "I" },
-                                    { label: "G-I", source: "G", target: "I" },
-                                    { label: "H-I", source: "H", target: "I" },
-				    { label: "testpoint-A", source:"testpoint", target: "A" } 
+                                    { target: "2", source: "5" },
+                                    { target: "3", source: "12" },
+                                    { target: "4", source: "18" },
+                                    { target: "6", source: "16" },
+                                    { target: "11", source: "17" },
+                                    { target: "49", source: "CIC" },
+			            { target: "15", source: "Indiana Gigapop" },
 				 ]
 				}
 				};
@@ -58,22 +51,16 @@
 		   width: 10,
 		   color: {
                             discreteMapper: {
-                                attrName: "label",
+                                attrName: "target",
                                 entries: [ 
-                                    { attrValue: "A-B", value: "#4D57E8" },
-				    { attrValue: "A-C", value: "#4D57E8" },
-                                    { attrValue: "B-C", value: "#4D57E8" },
-                                    { attrValue: "B-F", value: "#4D57E8" },
-                                    { attrValue: "C-D", value: "#4D57E8" },
-                                    { attrValue: "D-F", value: "#4D57E8" },
-                                    { attrValue: "D-G", value: "#4D57E8" },
-                                    { attrValue: "E-F", value: "#4D57E8" },
-                                    { attrValue: "E-G", value: "#4D57E8" },
-                                    { attrValue: "E-H", value: "#4D57E8" },
-                                    { attrValue: "E-I", value: "#4D57E8" },
-                                    { attrValue: "G-I", value: "#4D57E8" },	
-                                    { attrValue: "H-I", value: "#4D57E8" },
-				    { attrValue: "testpoint-A", value: "red" },
+                                    { attrValue: 2, value: "gray" },
+                                    { attrValue: 3, value: "gray" },
+				    { attrValue: 4, value: "gray" },
+				    { attrValue: 6, value: "gray" },
+                                    { attrValue: 11, value: "gray" },
+                                    { attrValue: 15, value: "gray" }
+				    
+				    
 				]
 				}
 			}
@@ -83,15 +70,20 @@
                             discreteMapper: {
                                 attrName: "id",
                                 entries: [
-                                    { attrValue: "A", value: "#25E86D" },
-                                    { attrValue: "B", value: "#25E86D" },
-                                    { attrValue: "C", value: "#25E86D" },
-				    { attrValue: "D", value: "#23E86D" },
-                                    { attrValue: "E", value: "#23E86D" },
-                                    { attrValue: "F", value: "#25E86D" },
-				    { attrValue: "G", value: "#25E86D" },
-                                    { attrValue: "H", value: "#25E86D" },
-                                    { attrValue: "I", value: "#25E86D" },
+                                    { attrValue: 2, value: "#F28F96" },
+                                    { attrValue: 3, value: "#F28F96" },
+                                    { attrValue: 4, value: "#F28F96" },
+				    { attrValue: 49, value: "#F28F96" },
+                                    { attrValue: 5, value: "#F28F96" },
+                                    { attrValue: 6, value: "#F28F96" },
+				    { attrValue: 11, value: "#F28F96" },
+                                    { attrValue: 12, value: "#F28F96" },
+                                    { attrValue: 15, value: "#F28F96" },
+				    { attrValue: 16, value: "#F28F96" },
+                                    { attrValue: 17, value: "#F28F96" },
+                                    { attrValue: 18, value: "#F28F96" },
+				    { attrValue: "CIC", value: "#F28F96" },
+                                    { attrValue: "Indiana Gigapop", value: "#F28F96" },
                                 ]
                             }
                         },
@@ -112,10 +104,13 @@
        var options = {
                     swfPath: "/swf/CytoscapeWeb",
                     flashInstallerPath: "/swf/playerProductInstall",
-		    points: [ { id: "A", x: 10, y:  10},
-              		      { id: "B", x: 50, y:  10},
-			      { id: "C", x: 10, y:  50},
-			      { id: "D", x: 50, y:  50} ]
+		    points: [ { id: "RouteFlow A", x: 10, y:  10},
+			      { id: "2", x: 12, y:  12},
+			      { id: "3", x: 14, y:  12},
+			      { id: "4", x: 14, y:  14},
+              		      { id: "RouteFlow B", x: 50, y:  10},
+			      { id: "RouteFlow C", x: 10, y:  50},
+			      { id: "RouteFlow D", x: 50, y:  50} ]
                 };
 
 
@@ -133,7 +128,7 @@
                          var target = event.target;
                          
                          clear();
-			  var rrdfile = "156.56.5.46" + target.data["id"] + ".rrd";
+			  var rrdfile = "192.12.206.231_" + target.data["id"] + ".rrd";
                          //print(target.data["parent"] + ":" + target.data["id"]); 
 			 //print ("foo");
 			 document.getElementById("note").innerHTML = target.data["parent"] + " Port:" + target.data["id"];
@@ -218,24 +213,13 @@
 		<center>
 		<table border=1>
 			<tr><th>Router</th><th>Status</th><th>Sessions</th><th>Terminal Session</th></tr>
-			<tr><td>A - SEAT</td><td bgcolor="lightgreen">Up</td><td>2 OSPF, 1 BGP</td>
-			    <td><button onclick="vtysh_A()">Open</button></td><tr>
-			<tr><td>B - SALT</td><td bgcolor="lightgreen">Up</td><td>3 OSPF</td>
-			    <td><button onclick="vtysh_A()">Open</button></td><tr>
-			<tr><td>C - LOSA</td><td bgcolor="lightgreen">Up</td><td>2 OSPF</td>
-			     <td><button onclick="vtysh_A()">Open</button></td><tr>
-			<tr><td>D - HOUS</td><td bgcolor="lightgreen">Up</td><td>3 OSPF</td>
-			     <td><button onclick="vtysh_A()">Open</button></td><tr>
-			<tr><td>E - CHIC</td><td bgcolor="lightgreen">Up</td><td>4 OSPF</td>
-			     <td><button onclick="vtysh_A()">Open</button></td><tr>
-                        <tr><td>F - KANS</td><td bgcolor="lightgreen">Up</td><td>3 OSPF</td>
-			     <td><button onclick="vtysh_A()">Open</button></td><tr>
-                        <tr><td>G - ATLA</td><td bgcolor="lightgreen">Up</td><td>3 OSPF</td>
-			     <td><button onclick="vtysh_A()">Open</button></td><tr>
-                        <tr><td>H - NEWY</td><td bgcolor="lightgreen">Up</td><td>2 OSPF</td>
-			     <td><button onclick="vtysh_A()">Open</button></td><tr>
-			<tr><td>I - WASH</td><td bgcolor="lightgreen">Up</td><td>3 OSPF</td>
-			     <td><button onclick="vtysh_A()">Open</button></td><tr>
+			<tr><td>RouteFlow A</td><td bgcolor="#F28F96">Down</td><td></td><td align="center"><img scale="200%" src="media/Open_button.png" onclick="vtysh_A()"></td><tr>
+			<tr><td>RouteFlow B</td><td bgcolor="#F28F96">Down</td><td></td><td align="center"><img scale="200%" src="me
+dia/Open_button.png" onclick="vtysh_A()"></td><tr>
+			<tr><td>RouteFlow C</td><td bgcolor="#F28F96">Down</td><td></td><td align="center"><img scale="200%" src="me
+dia/Open_button.png" onclick="vtysh_A()"></td><tr>
+			<tr><td>RouteFlow D</td><td bgcolor="#F28F96">Down</td><td></td><td align="center"><img scale="200%" src="me
+dia/Open_button.png" onclick="vtysh_A()"></td><tr>
 		</table>
 		&nbsp;
 		&nbsp;

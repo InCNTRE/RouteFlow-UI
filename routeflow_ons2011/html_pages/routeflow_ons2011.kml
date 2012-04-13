@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2" 
+  xmlns:gx="http://www.google.com/kml/ext/2.2">
+<NetworkLinkControl>
+   <expires>2012-01-23T23:53:38Z</expires>
+</NetworkLinkControl>
+<Document>
+        <Style id="external_router">
+        <IconStyle>
+       		<scale>0.75</scale>
+       		<Icon>
+       			<href>https://of-lab2.grnoc.iu.edu/img/router.png</href> 
+       		</Icon>
+       		<hotSpot x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+       	</IconStyle>
+	<BalloonStyle>
+            <text>$[description]</text>
+        </BalloonStyle>
+	<LabelStyle>
+		<scale>0.75</scale>
+	</LabelStyle>
+	</Style>
+	<Style id="server">
+        <IconStyle>
+                <scale>0.75</scale>
+                <Icon>
+                        <href>http://156.56.5.14/server.png</href> 
+                </Icon>
+                <hotSpot x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+        </IconStyle>
+	 <BalloonStyle>
+            <text>$[description]</text>
+         </BalloonStyle>
+        <LabelStyle>
+                <scale>0.75</scale>
+        </LabelStyle>
+        </Style>
+	<Style id="link">
+                <LineStyle>
+                        <color>ffabacb3</color>
+                        <width>40</width>
+                </LineStyle>
+                <PolyStyle>
+                        <color>ffabacb3</color>
+                </PolyStyle>
+                <BalloonStyle>
+            <text>$[description]</text>
+                </BalloonStyle>
+        </Style>
+       	<Style id="ospf_up">
+      		<LineStyle>
+        		<color>ffb41414</color>
+        		<width>40</width>
+      		</LineStyle>
+      		<PolyStyle>
+        		<color>ffb41414</color>
+      		</PolyStyle>
+      		<BalloonStyle>
+            <text>$[description]</text>
+       		</BalloonStyle>
+    	</Style>
+    	<Style id="ospf_down">
+      		<LineStyle>
+        		<color>ff000000</color>
+        		<width>40</width>
+      		</LineStyle>
+      		<PolyStyle>
+        		<color>ff000000</color>
+      		</PolyStyle>
+      		<BalloonStyle>
+            <text>$[description]</text>
+       		</BalloonStyle>
+    	</Style>
+       	
+       	<Style id="bgp_up">
+      		<LineStyle>
+        		<color>ff0000ff</color>
+        		<width>40</width>
+      		</LineStyle>
+      		<PolyStyle>
+        		<color>ff0000ff</color>
+      		</PolyStyle>
+      		<BalloonStyle>
+            <text>$[description]</text>
+       		</BalloonStyle>
+    	</Style>
+    	<Style id="bgp_down">
+      		<LineStyle>
+        		<color>ff000000</color>
+        		<width>40</width>
+      		</LineStyle>
+      		<PolyStyle>
+        		<color>ff000000</color>
+      		</PolyStyle>
+      		 <BalloonStyle>
+            <text>$[description]</text>
+       		</BalloonStyle>
+    	</Style>
+    	
+  
+       	
+       	<name>RouteFlow Demo</name> 
+    	<open>1</open> 
+    	<Folder>
+    	<name>Routers</name>
+       	<Placemark id="CIC Router">
+ 			<name>CIC Router</name>
+ 			<description>
+ 				CIC Router
+			</description>
+			<styleUrl>#external_router</styleUrl> 
+			<Point>
+ 				<coordinates>-87.64306,41.896504</coordinates>
+ 			</Point>
+ 		</Placemark>
+ 		
+ 		<Placemark id="Indiana Gigapop">
+ 			<name>Indiana Gigapop Router</name>
+ 			<description>
+ 				Indiana Gigapop Router
+			</description>
+			<styleUrl>#external_router</styleUrl> 
+			<Point>
+ 				<coordinates>-85.55,39.60</coordinates>
+ 			</Point>
+ 		</Placemark>
+ 		
+ 		<Placemark id="RouteFlow A">
+ 			<name>RouteFlow A Router</name>
+ 			<description>
+ 				RouteFlow A Router
+			</description>
+			<styleUrl>#external_router</styleUrl> 
+			<Point>
+ 				<coordinates>-86.40,40.40</coordinates>
+ 			</Point>
+ 		</Placemark>
+ 		
+ 		<Placemark id="RouteFlow B">
+ 			<name>RouteFlow B Router</name>
+ 			<description>
+ 				RouteFlow B Router
+			</description>
+			<styleUrl>#external_router</styleUrl> 
+			<Point>
+ 				<coordinates>-85.55,40.40</coordinates>
+ 			</Point>
+ 		</Placemark>
+ 		
+ 		<Placemark id="RouteFlow C">
+ 			<name>RouteFlow C Router</name>
+ 			<description>
+ 				RouteFlow C Router
+			</description>
+			<styleUrl>#external_router</styleUrl> 
+			<Point>
+ 				<coordinates>-86.40,40.00</coordinates>
+ 			</Point>
+ 		</Placemark>
+ 		
+ 		<Placemark id="RouteFlow D">
+ 			<name>RouteFlow D Router</name>
+ 			<description>
+ 				RouteFlow D Router
+			</description>
+			<styleUrl>#external_router</styleUrl> 
+			<Point>
+ 				<coordinates>-85.55,40.00</coordinates>
+ 			</Point>
+ 		</Placemark>
+ 		</Folder>
+ 		<Folder>
+ 		 <name>Links</name>
+ 		 
+ 		 <Placemark id="A to B">
+ 			<name>A to B</name>
+ 		    <description><![CDATA[
+ 		    			<h3>A to B</h3> 
+ 		    			<img src="https://of-lab2.grnoc.iu.edu/cgi-bin/show-rf-img.cgi?interface=192.12.206.231_2">
+ 		    			]]>
+ 		    </description>
+			<styleUrl>#ospf_down
+</styleUrl>
+			<LineString>
+				<extrude>1</extrude>
+      			<tessellate>1</tessellate>
+      			<altitudeMode>relativeToGround</altitudeMode>			
+ 				<coordinates>-86.40,40.40,600 -85.55,40.40,600</coordinates>
+ 			</LineString>	
+ 		 </Placemark>
+ 		 
+ 		 <Placemark id="A to C">
+ 			<name>A to C</name>
+ 		    <description><![CDATA[
+ 		    			<h3>A to C</h3> 
+ 		    			<img src="https://of-lab2.grnoc.iu.edu/cgi-bin/show-rf-img.cgi?interface=192.12.206.231_3">
+ 		    			]]>
+ 		    </description>
+			<styleUrl>#ospf_down
+</styleUrl>
+			<LineString>
+				<extrude>1</extrude>
+      			<tessellate>1</tessellate>
+      			<altitudeMode>relativeToGround</altitudeMode>			
+ 				<coordinates>-86.40,40.40,600 -86.40,40.00,600</coordinates>
+ 			</LineString>	
+ 		 </Placemark>
+ 		 
+ 		 <Placemark id="A to D">
+ 			<name>A to D</name>
+ 		    <description><![CDATA[
+ 		    			<h3>A to D</h3> 
+ 		    			<img src="https://of-lab2.grnoc.iu.edu/cgi-bin/show-rf-img.cgi?interface=192.12.206.231_4">
+ 		    			]]>
+ 		    </description>
+			<styleUrl>#ospf_down
+</styleUrl>
+			<LineString>
+				<extrude>1</extrude>
+      			<tessellate>1</tessellate>
+      			<altitudeMode>relativeToGround</altitudeMode>			
+ 				<coordinates>-86.40,40.40,600 -85.55,40.00,600</coordinates>
+ 			</LineString>	
+ 		 </Placemark>
+ 		 
+ 		 <Placemark id="B to D">
+ 			<name>B to D</name>
+ 		    <description><![CDATA[
+ 		    			<h3>B to D</h3> 
+ 		    			<img src="https://of-lab2.grnoc.iu.edu/cgi-bin/show-rf-img.cgi?interface=192.12.206.231_6">
+ 		    			]]>
+ 		   </description>
+			<styleUrl>#ospf_down
+</styleUrl>
+			<LineString>
+				<extrude>1</extrude>
+      			<tessellate>1</tessellate>
+      			<altitudeMode>relativeToGround</altitudeMode>			
+ 				<coordinates>-85.55,40.40,600 -85.55,40.00,600</coordinates>
+ 			</LineString>	
+ 		 </Placemark>
+ 		 
+ 		 <Placemark id="C to D">
+ 			<name>C to D</name>
+ 		    <description><![CDATA[
+ 		    			<h3>C to D<h3>
+ 		    			<img src="https://of-lab2.grnoc.iu.edu/cgi-bin/show-rf-img.cgi?interface=192.12.206.231_11">
+ 		    			]]></description>
+			<styleUrl>#ospf_down
+</styleUrl>
+			<LineString>
+				<extrude>1</extrude>
+      			<tessellate>1</tessellate>
+      			<altitudeMode>relativeToGround</altitudeMode>			
+ 				<coordinates>-86.40,40.00,600 -85.55,40.00,600</coordinates>
+ 			</LineString>	
+ 		 </Placemark>
+ 		 
+ 		 <Placemark id="A to CIC">
+ 			<name>A to CIC</name>
+ 		    <description><![CDATA[
+ 		    			A to CIC 
+ 		    			<img src="https://of-lab2.grnoc.iu.edu/cgi-bin/show-rf-img.cgi?interface=192.12.206.231_49">
+ 		    			]]></description>
+			<styleUrl>#bgp_down
+</styleUrl>
+			<LineString>
+				<extrude>1</extrude>
+      			<tessellate>1</tessellate>
+      			<altitudeMode>relativeToGround</altitudeMode>			
+ 				<coordinates>-86.40,40.40,600 -87.64306,41.896504,600</coordinates>	
+ 			</LineString>	
+ 		 </Placemark>
+ 		 
+ 		  <Placemark id="D to Gigapop">
+ 			<name>D to Gigapop</name>
+ 		    <description><![CDATA[
+ 		    			<h3>D to Gigapop</h3>
+ 		    			<img src="https://of-lab2.grnoc.iu.edu/cgi-bin/show-rf-img.cgi?interface=192.12.206.231_15">
+ 		    			]]></description>
+			<styleUrl>#bgp_down
+</styleUrl>
+			<LineString>
+				<extrude>1</extrude>
+      			<tessellate>1</tessellate>
+      			<altitudeMode>relativeToGround</altitudeMode>			
+ 				<coordinates>-85.55,40.00,600 -85.55,39.60,600</coordinates>	
+ 			</LineString>	
+ 		 </Placemark>
+
+		
+                  <Placemark id="To Gigapop Testpoint">
+                        <name>To Gigapop Testpoint</name>
+                    <description><![CDATA[
+                                        <h3>To Gigapop Testpoint</h3>
+                                        <img src="https://of-lab2.grnoc.iu.edu/cgi-bin/show-rf-img.cgi?interface=192.12.206.231_15">
+                                        ]]></description>
+                        <styleUrl>#link</styleUrl>
+                        <LineString>
+                                <extrude>1</extrude>
+                        <tessellate>1</tessellate>
+                        <altitudeMode>relativeToGround</altitudeMode>                   
+                                <coordinates>-85.55,39.60,600 -86.171484,39.759871,600</coordinates>    
+                        </LineString>   
+                 </Placemark>
+
+		  <Placemark id="To CIC Testpoint">
+                        <name>To CIC Testpoint</name>
+                    <description><![CDATA[
+                                        <h3>To CIC Testpoint</h3>
+                                        <img src="https://of-lab2.grnoc.iu.edu/cgi-bin/show-rf-img.cgi?interface=192.12.206.231_15">
+                                        ]]></description>
+                        <styleUrl>#link</styleUrl>
+                        <LineString>
+                                <extrude>1</extrude>
+                        <tessellate>1</tessellate>
+                        <altitudeMode>relativeToGround</altitudeMode>
+                                <coordinates>-87.64306,41.896504,600  -87.00,41.896504,600</coordinates>
+                        </LineString>
+                 </Placemark>
+
+                
+ 		 
+ 		</Folder>
+
+
+	       <Folder>
+       		 <name>Servers</name>
+        	    <Placemark id="Controller">
+                        <name>Controller</name>
+                        <description>
+                               Controller 
+                        </description>
+                        <styleUrl>#server</styleUrl> 
+                        <Point>
+                                <coordinates>-86.500775,39.174289</coordinates>
+                        </Point>
+                     </Placemark>
+			<Placemark id="Gig Testpoint">
+                        <name>Ind Gigapop Testpoint</name>
+                        <description>
+                               Ind Gigapop Testpoint 
+                        </description>
+                        <styleUrl>#server</styleUrl> 
+                        <Point>
+                                <coordinates>-86.171484,39.759871</coordinates>
+                        </Point>
+                     </Placemark>
+                        <Placemark id="CIC Testpoint">
+                        <name>CIC Testpoint</name>
+                        <description>
+                               CIC Testpoint 
+                        </description>
+                        <styleUrl>#server</styleUrl> 
+                        <Point>
+                        <coordinates>-87.00,41.896504</coordinates>
+                        </Point>
+                     </Placemark> 
+	      </Folder>
+</Document>
+</kml>

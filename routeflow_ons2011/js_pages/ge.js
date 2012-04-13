@@ -13,7 +13,7 @@ function initCallback(object) {
   ge.getWindow().setVisibility(true);
 
   // Earth is ready, we can add features to it
-  addKmlFromUrl('http://of-lab2.grnoc.iu.edu/rf/html_pages/routeflow_ons2012.kml');
+  addKmlFromUrl('http://of-lab2.grnoc.iu.edu/rf_ons2011/html_pages/routeflow_ons2011.kml');
 }
 
 function addKmlFromUrl(kmlUrl) {
