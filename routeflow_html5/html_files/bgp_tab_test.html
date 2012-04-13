@@ -1,10 +1,16 @@
-<link rel="stylesheet" href="../css/tabs.css" />
-<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
+<html>
+<head>
+  <script type="text/javascript" src="../js/DataTables-1.9.0/media/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="../js_files/tables.js"></script>
 
+  <link rel="stylesheet" href="../css/tabs.css" />
+</head>
+
+<body>
 <div class="text">
   <img src="http://incntre.iu.edu/sites/all/themes/incntre/images/logo.png" alt="incntre">
 
-  <div id="routing_form" class="form">
+  <div :w:s:d="routing_form" class="form">
 		<p>
 			<strong>Switch:</strong> 
 			<div id="sw_name" class="list_entry">Not Selected</div>
@@ -28,3 +34,6 @@
 	</div>
 	
 </div>
+
+</body>
+</html>
