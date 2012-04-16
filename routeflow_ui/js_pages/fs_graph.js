@@ -2,7 +2,7 @@ window.onload = init_graph();
 
 
 function init_graph () {
-	setupMeasurementGraph("192.12.206.231_2.rrd:192.12.206.231_3.rrd:192.12.206.231_4.rrd:192.12.206.231_5.rrd:192.12.206.231_6.rrd:192.12.206.231_12.rrd:192.12.206.231_15.rrd:192.12.206.231_16.rrd:192.12.206.231_17.rrd");
+	setupMeasurementGraph("156.56.5.46_1.rrd:156.56.5.46_2.rrd:156.56.5.46_3.rrd:");
 }
 
 
@@ -41,7 +41,7 @@ function MeasurementGraph(container, legend_container, options){
     this.graph            = null;
     this.panel            = null;
     this.updating         = null;
-    this.POLL_INTERVAL    = 10000;
+    this.POLL_INTERVAL    = 1000000000;
 
 
     var round = function(value){

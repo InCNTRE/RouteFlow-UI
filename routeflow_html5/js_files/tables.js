@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('interfaces').dataTable( {
+    $('#interfaces').dataTable( {
          "bProcessing": true,
         "sAjaxSource": '../webservice/interfaces.txt'
     } );

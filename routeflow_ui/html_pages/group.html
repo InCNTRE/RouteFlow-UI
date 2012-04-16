@@ -135,10 +135,15 @@
                          var target = event.target;
                          
                          clear();
-			  var rrdfile = "156.56.5.46" + target.data["id"] + ".rrd";
+			 // var rrdfile = "156.56.5.46" + target.data["id"] + ".rrd";
                          //print(target.data["parent"] + ":" + target.data["id"]); 
 			 //print ("foo");
-			 document.getElementById("note").innerHTML = target.data["parent"] + " Port:" + target.data["id"];
+			 document.getElementById("note").innerHTML = "FFF:" + target.data["id"]; 
+
+			var rrdfile = target.data["rrd"];
+			//print(target.data["id"]); 
+			document.getElementById("switch").innerHTML = target.data["id"];
+
 
 			//Clear old graph
 			 document.getElementById("traffic_graph").innerHTML = "";
@@ -150,8 +155,8 @@
                     
                     function clear() {
                         document.getElementById("note").innerHTML = "";
-			//document.getElementById("switch").innerHTML = "";
-			//document.getElementById("port").innerHTML = "";
+			document.getElementById("switch").innerHTML = "";
+			document.getElementById("port").innerHTML = "";
                     }
                 
                     function print(msg) {
@@ -178,6 +183,7 @@
         <tr>
          <td class="map">
 
+<div id="note"></div>
 <button id="add_new_button">
         Add Connection
 </button>
@@ -199,8 +205,7 @@
 		
 		<fieldset>
 		<ul>
-		<li><label for=add_group_name">Switch:</label><div id="switch"></div></li>
-		<li><label for=add_group_name">Port:</label><div id="port"></div></li>
+		<li><label for=add_group_name">Switch:</label><div id="switch">A - SEAT</div></li>
 		<li><label for="add_group_name"> Description: </label>
 		<input type="text" size=20 id="add_group_name" />
 		</li>

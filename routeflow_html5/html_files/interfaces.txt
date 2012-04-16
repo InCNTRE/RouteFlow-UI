@@ -1,0 +1,22 @@
+{
+ "aaData": [
+  [
+   "A - SEAT",
+   "RouteFlow Seattle",
+   "port 1",
+   "to testpoint"
+  ],
+  [   
+   "A - SEAT",
+   "RouteFlow Seattle",
+   "port 2",
+   "to B - SALT"
+  ],
+  [   
+   "A - SEAT",
+   "RouteFlow Seattle",
+   "port 3",
+   "to C - LOSA"
+  ]
+ ]
+}

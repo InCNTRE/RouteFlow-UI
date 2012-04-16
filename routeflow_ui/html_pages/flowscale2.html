@@ -133,10 +133,13 @@
                          var target = event.target;
                          
                          clear();
-			  var rrdfile = "156.56.5.46" + target.data["id"] + ".rrd";
+
+				
+			  //var rrdfile = "156.56.5.46" + target.data["id"] + ".rrd";
+			   var rrdfile = "156.56.5.46" + "_2" + ".rrd";
                          //print(target.data["parent"] + ":" + target.data["id"]); 
 			 //print ("foo");
-			 document.getElementById("note").innerHTML = target.data["parent"] + " Port:" + target.data["id"];
+			 document.getElementById("note").innerHTML = target.data["id"]; 
 
 			//Clear old graph
 			 document.getElementById("traffic_graph").innerHTML = "";

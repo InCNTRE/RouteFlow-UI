@@ -1,0 +1,72 @@
+<script type="text/javascript" src=" ../js/DataTables-1.9.0/media/js/jquery.js"></script>
+<script type="text/javascript" src=" ../js/DataTables-1.9.0/media/js/jquery.dataTables.js"></script>
+
+              <style type="text/css" title="currentStyle">
+                        @import "../js/DataTables-1.9.0/media/css/demo_page.css";
+                        @import "../js/DataTables-1.9.0/media/css/demo_table.css";
+                </style>
+                <script type="text/javascript" charset="utf-8">
+                        $(document).ready(function() {
+                                var oTable = $('#example').dataTable( {
+                                        "bProcessing": true,
+                                        "sAjaxSource": "interfaces.txt"
+                                } ); } ); $(function() {
+                                $( "#radio" ).buttonset();
+                        });
+                </script>
+		<link rel="stylesheet" href="../css/tabs.css" />
+<div id="text">
+<div id="routing_form" class="form"> 
+		<p>
+			<div id="sw_cat" class="categ">Switch: </div>
+			<div id="sw_name" class="list_entry">A - SEAT</div>
+		  	<div id="dw_desc_cat" class="categ">Description: </div>
+                        <div id="sw_desc" class="list_entry">RouteFlow router in Seattle</div>
+			
+			<div id="if-container">
+			<div id="if_title" class="categ">Interfaces</div>
+			
+		 	<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+		          <thead>
+			   <tr>
+			    <th width="25%">Router</th>
+		   	    <th width="25%">Router Description</th>
+			    <th width="25%">Port</th>
+		            <th width="25%">Description</th>	
+			  </tr>
+		          </thead>
+			  <tbody>
+			  </tbody>
+		        </table>	
+		        <br>	
+			<hr>
+			<div id="roles" class="categ">Roles:</div>
+                        <select>
+                         <option>Customer</option>
+       			 <option>Peer</option>                 
+			</select>
+			<div id="conn_desc" class="categ">Connection Description:</div>
+                        <input type="text" />
+
+			<div id="rt_prop_categ" class="categ">Choose Routing Protocol:</div>
+			<form>
+			<div id="radio">
+				<input type="radio" id="radio1" name="radio" /><label for="radio1">OSPF</label>
+				<input type="radio" id="radio2" name="radio" checked="checked" /><label for="radio2">BGP</label>
+			</div>
+			
+			</form>
+			
+			<button id="next_block" style="background-color:lightblue">Next /30</button>
+			<button id="select_IP">Select IP</button>
+			<div id="ip_block" class="categ">IP Block: </div>
+ 			<input type="text" value="10.20.0.4/30" />
+				
+			<br>
+			<br>
+			<button id="add_conn">Add Connection</button>
+			</div>
+		</p>
+	</div>
+	
+</div>

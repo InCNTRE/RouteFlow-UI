@@ -1,5 +1,6 @@
 #routing_form {
-	color: white;
+	background: white;
+	color: black;
 }
 
 #add_conn {
@@ -7,6 +8,11 @@
     height: 3em;
 }
 
+.categ {
+     font-weight: bolder;
+     margin: .5em;
+}
+
 .list_entry {
-	margin-bottom: .5em;
+	margin: .5em;
 }

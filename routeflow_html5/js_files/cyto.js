@@ -4,7 +4,7 @@ $(document).ready(function() {
 		var styleObj = {
   			selectors: {
     			"node": {
-      				fillColor: "#fff",
+      				fillColor: "lightgreen",
       				labelText:  {
       						 defaultValue: "",
 	                         passthroughMapper: "label"
@@ -14,13 +14,16 @@ $(document).ready(function() {
       				width: 18
     			},
     			"node:selected": {
-       				fillColor: "red"
+       				fillColor: "red",
+				borderWidth: 3
     			},
     			"edge": {
-       				width: 5
+       				width: 5,
+				lineColor: "lightgreen"
     			},
     			"edge:selected": {
-       				fillColor: "red"
+       				borderColor: "red",
+				borderWidth: 3
     			},
   		   }
 		};	
@@ -70,10 +73,25 @@ $(document).ready(function() {
                 });
 
 		
+
+
+	  $("#extruderhelp").buildMbExtruder({
+          positionFixed:true,
+          width:350,
+          sensibility:800,
+          position:"right",
+          });
+
+	  $("#extruderadmin").buildMbExtruder({
+          positionFixed:true,
+          width:350,
+          sensibility:800,
+          position:"right",
+          });
 		
 		
 	$("#extruderLeft").buildMbExtruder({
-          positionFixed:true,
+          positionFixed:false,
           width:350,
           sensibility:800,
           position:"right",
@@ -89,17 +107,11 @@ $(document).ready(function() {
 
 	$("#extruderLeft3").buildMbExtruder({
           positionFixed:true,
-          width:350,
+          width:500,
           sensibility:800,
           position:"right",
           });
 
-	$("#extruderLeft4").buildMbExtruder({
-          positionFixed:true,
-          width:350,
-          sensibility:800,
-          position:"right",
-          });
        		 
 });
 

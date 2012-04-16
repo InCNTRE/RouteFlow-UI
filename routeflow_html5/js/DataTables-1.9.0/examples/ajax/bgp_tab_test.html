@@ -1,8 +1,21 @@
-<script type="text/javascript" src="../js/DataTables-1.9.0/media/js/jquery.js"</script>
-<script type="text/javascript" src="../js/DataTables-1.9.0/media/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="../js_files/tables.js"></script>
-<link rel="stylesheet" href="../css/tabs.css" />
+<html>
+<head>
+<script type="text/javascript" src="../../media/js/jquery.js"</script>
+<script type="text/javascript" src="../../media/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#interfaces').dataTable( {
+         "bProcessing": true,
+        "sAjaxSource": '../../../../webservice/interfaces.txt'
+    });
+});
+</script>
+
+</head>
+
+<body>
 <div class="text">
+
   <img src="http://incntre.iu.edu/sites/all/themes/incntre/images/logo.png" alt="incntre">
 
   <div id="routing_form" class="form">
@@ -35,4 +48,5 @@
 	</div>
 	
 </div>
-
+</body>
+</html>
